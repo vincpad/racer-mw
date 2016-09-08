@@ -950,8 +950,11 @@
 
 #if defined(NANOWII)
   #define MPU6050
-  #define ACC_ORIENTATION(X, Y, Z)  {imu.accADC[ROLL]  = -Y; imu.accADC[PITCH]  =  X; imu.accADC[YAW]  =  Z;}
-  #define GYRO_ORIENTATION(X, Y, Z) {imu.gyroADC[ROLL] = -X; imu.gyroADC[PITCH] = -Y; imu.gyroADC[YAW] = -Z;}
+  //#define ACC_ORIENTATION(X, Y, Z)  {imu.accADC[ROLL]  = -Y; imu.accADC[PITCH]  =  X; imu.accADC[YAW]  =  Z;}
+  //#define GYRO_ORIENTATION(X, Y, Z) {imu.gyroADC[ROLL] = -X; imu.gyroADC[PITCH] = -Y; imu.gyroADC[YAW] = -Z;}
+  #define ACC_ORIENTATION(X, Y, Z)  {imu.accADC[ROLL]  = -X; imu.accADC[PITCH]  =  -Y; imu.accADC[YAW]  =  Z;}
+  #define GYRO_ORIENTATION(X, Y, Z) {imu.gyroADC[ROLL] = Y; imu.gyroADC[PITCH] = -X; imu.gyroADC[YAW] = -Z;}
+
   #undef INTERNAL_I2C_PULLUPS
   // move motor 7 & 8 to pin 4 & A2
   #undef SOFT_PWM_3_PIN_HIGH
